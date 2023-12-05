@@ -15,21 +15,19 @@
             </div>
         </header>
 
-        <main class="container">
-            <div class="row">
-                <div class="col">
-                    {% for post in posts %}
-                        <article class="post">
-                            <time class="date">
-                                16.06.2014
-                            </time>
-                            <h2><a href="">Slow Progtess</a></h2>
-                            <p>Learning takes time sometimes</p>
-                        </article>
-                    {% endfor %}
-                </div>
-            </div>
-        </main>
+        {% extends 'blog/base.html' %}
+
+            {% block content %}
+                {% for post in posts %}
+                    <article class="post">
+                    <time class="date">
+                        {{ post.published_date }}
+                    </time>
+                    <h2><a href="">{{ post.title }}</a></h2>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </article>
+            {% endfor %}
+        {% endblock %}
 
         </article>
             <time>published: 14.06.2014, 12:14</time>
