@@ -16,7 +16,9 @@
                 {{ post.published_date }}
             </div>
         {% else %}
-            <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+            <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish
+                {% include './icons/check.svg' %}
+            </a>
         {% endif %}
         <h2>{{ post.title }}</h2>
         <p>{{ post.text|linebreaksbr }}</p>
